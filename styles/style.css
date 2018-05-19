@@ -20,28 +20,38 @@ html{
 body{
   background: linear-gradient(#6495ED, #29a0c2);
   max-height: 100%;
+  max-width: 100%;
+}
+
+textarea {
+  resize: none;
 }
 .box1{
   grid-column: 1/8;
   text-align: center;
-  border: 3px solid black;
+  border: 1px solid black;
 }
 .box2{
   grid-column: 1/8;
   text-align: center;
-  border: 3px solid black;
+  /*border: 1px solid black;*/
   grid-row: 2/11;
 }
 .box3{
   grid-column: 2/7;
   text-align: center;
-  border: 3px solid red;
+
+  box-shadow: 0 16px 32px 0;
   grid-row: 2/11;
+  background-color: #dfa519;
 }
 .box4{
   grid-column: 2/7;
   text-align: center;
-  border: 3px solid red;
+
+  border-width: thick;
+  border-color: #white;
+  background-color: white;
   grid-row: 10/11;
 
 }
@@ -61,4 +71,8 @@ body{
 
 #ratings{
   float:center;
+}
+
+.fa fa-facebook-official.relative{
+  left: 30px;
 }
