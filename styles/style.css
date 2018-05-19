@@ -56,6 +56,11 @@ textarea {
 
 }
 
+#featureImage {
+  display: inline;
+  max-width: 100%;
+}
+
 #name, #ratings, #address{
 
   display: inline;

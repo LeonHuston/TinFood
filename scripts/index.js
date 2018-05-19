@@ -1,25 +1,28 @@
+var responseJSON;
+
 function getGeoCode(latitude, longitude) {
     var lat = latitude;
     var long = longitude;
-    var responseJSON;
+    
 
     var uri = 'https://developers.zomato.com/api/v2.1/geocode?lat=' + lat + '&lon=' + long;
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", uri, true);
     xhr.setRequestHeader('Accept', 'application/json');
-    xhr.setRequestHeader('user-key', 'a5d7d8b6e3bcbabee209e2b105999150');
+    xhr.setRequestHeader('user-key', '3d0ab60f2f13468436ded2fa7d6a0188');
 
     xhr.onload = function () {
         responseJSON = JSON.parse(xhr.responseText);
         console.log(responseJSON);
-        setInfo(responseJSON);
+        setInfo();
+        nextRest();
     }
     xhr.send(null);
 
 }
 
-function getMap(latCode, lonCode) {
+/* function getMap(latCode, lonCode) {
     var map = new ol.Map({
         target: 'map',
         layers: [
@@ -42,7 +45,7 @@ function getMap(latCode, lonCode) {
             zoom: 18
         })
     })
-}
+} */
 
 function getMenu(id) {
 
@@ -51,7 +54,7 @@ function getMenu(id) {
     var xhr2 = new XMLHttpRequest();
     xhr2.open("GET", menu_uri, true);
     xhr2.setRequestHeader('Accept', 'application/json');
-    xhr2.setRequestHeader('user-key', 'a5d7d8b6e3bcbabee209e2b105999150');
+    xhr2.setRequestHeader('user-key', '3d0ab60f2f13468436ded2fa7d6a0188');
     xhr2.onload = function () {
         menuJSON = JSON.parse(xhr2.responseText);
     }
@@ -59,7 +62,18 @@ function getMenu(id) {
     return menuJSON;
 }
 
-function setInfo(responseJSON) {
+var counter = 0
+function nextRest(){
+    document.getElementById('name').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.name;
+    document.getElementById('address').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.location.address;
+    document.getElementById('ratings').innerHTML = 'rating ' + responseJSON.nearby_restaurants[counter].restaurant.user_rating.aggregate_rating;
+    document.getElementById('cuisine').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.cuisines;
+    document.getElementById('averagecost').innerHTML = '$' + responseJSON.nearby_restaurants[counter].restaurant.average_cost_for_two;
+    document.getElementById('featureImage').src = responseJSON.nearby_restaurants[counter].restaurant.featured_image;
+    counter += 1;
+}
+
+function setInfo() {
     for (var i = 0; i < responseJSON.nearby_restaurants.length; i++) {
 
         console.log('name:', responseJSON.nearby_restaurants[i].restaurant.name);
