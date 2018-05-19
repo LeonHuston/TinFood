@@ -64,6 +64,7 @@ function getMenu(id) {
 
 var counter = 0
 function nextRest(){
+    console.log("click");
     document.getElementById('name').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.name;
     document.getElementById('address').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.location.address;
     document.getElementById('ratings').innerHTML = 'rating ' + responseJSON.nearby_restaurants[counter].restaurant.user_rating.aggregate_rating;
@@ -82,7 +83,7 @@ function setInfo() {
         console.log('average cost:', '$' + responseJSON.nearby_restaurants[i].restaurant.average_cost_for_two);
         console.log('rating:', responseJSON.nearby_restaurants[i].restaurant.user_rating.aggregate_rating);
         console.log('photo url:', responseJSON.nearby_restaurants[i].restaurant.featured_image);
-        console.log('menu:', getMenu(responseJSON.nearby_restaurants[i].restaurant.id));
+        //console.log('menu:', getMenu(responseJSON.nearby_restaurants[i].restaurant.id));
         console.log('-------------------------')
 
     }

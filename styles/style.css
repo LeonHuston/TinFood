@@ -39,7 +39,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
   box-shadow: 0 16px 32px 0;
   grid-row: 2/11;
-  background-color: #dfa519;
+  background-color: transparent;
 }
 .infotable{
   grid-column: 2/7;
@@ -81,14 +81,16 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .crossicons{
   position: relative;
   text-align: left;
-  bottom: -68%;
-  border: 0;
+  bottom: 4%;
+  max-width: 58px;
 }
 
 .tickicons{
   position: relative;
+  float: right;
   text-align: right;
-  bottom: -54%;
+  bottom: 13%;
+  max-width: 58px;
 
 }
 
@@ -134,9 +136,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   opacity: 1;
 }
 
-.foodpic{
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
+#crossbutton{
+  background: url("Icons/Cross-Clicked.png") no-repeat;
+}
+
+#crossbutton:hover{
+  transform: scale(1.5);
+  opacity: 1;
 }
