@@ -32,7 +32,7 @@ function getMap(latCode, lonCode) {
                 })}),
                 style: new ol.style.Style({
                     image: new ol.style.Icon({
-                        src: 
+                        src: /../Icons/Map-Marker.png
                     })
                 })
             })
