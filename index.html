@@ -5,5 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 
-  </head>
-  </html>
+<style>
+.wrapper {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px,auto);
+  justify-items: stretch;
+  align-items: stretch;
+  width: 100vw;
+  background: #ddd
+}
+
+.box1{
+  grid-column: 1/4;
+  text-align: center;
+  border: 5px solid black;
+}
+
+</style>
+<body>
+  <div class="wrapper">
+    <div class="box1">
+      <h1>apple</h1>
+    </div>
+<a href=# onclick= 'getGeoCode(-36.852515, 174.768618)'>get request</a>
+    </body>
+
+<script src="scripts/index.js"></script>
