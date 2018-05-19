@@ -16,8 +16,6 @@ function getGeoCode(latitude, longitude){
         getAddress(responseJSON);
     }
     xhr.send(null);
-
-    
 }
 
 function getAddress(responseJSON){
