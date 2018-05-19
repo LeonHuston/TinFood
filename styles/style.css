@@ -18,7 +18,7 @@ html{
     position:fixed;
 }
 body{
-  background: linear-gradient(#6495ED, #29a0c2);
+  background: linear-gradient(#405869, #29A0C2);
   max-height: 100%;
   max-width: 100%;
 }
@@ -29,7 +29,7 @@ textarea {
 .box1{
   grid-column: 1/8;
   text-align: center;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 .box2{
   grid-column: 1/8;
@@ -37,7 +37,7 @@ textarea {
   /*border: 1px solid black;*/
   grid-row: 2/11;
 }
-.box3{
+.card{
   grid-column: 2/7;
   text-align: center;
 
@@ -45,12 +45,12 @@ textarea {
   grid-row: 2/11;
   background-color: #dfa519;
 }
-.box4{
+.infotable{
   grid-column: 2/7;
   text-align: center;
 
   border-width: thick;
-  border-color: #white;
+  border-color: white;
   background-color: white;
   grid-row: 10/11;
 
@@ -75,4 +75,16 @@ textarea {
 
 .fa fa-facebook-official.relative{
   left: 30px;
+}
+
+.crossicons{
+  position: relative;
+  text-align: left;
+  bottom: -68%;
+}
+
+.tickicons{
+  position: relative;
+  text-align: right;
+  bottom: -54%;
 }
