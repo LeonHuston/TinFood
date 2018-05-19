@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="styles\style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="utf-8">
+  <link rel="stylesheet" href="sectionizr.css">
+</head>
 
 <body>
   <div class="wrapper">
@@ -16,22 +18,27 @@
       <i class="fa fa-twitter" style="font-size:24px"></i>
     </div>
 
-    <div class= "card">CARD
-      <div class="crossicons">
-        <img src="Icons/Cross-Unclicked.png" >
+    <div class= "card">
+      <img id="featureImage" src=""/>
+      <div class="crossicons" onclick="nextRest()">
+          <button class="btn" id="crossbutton" ><img src="Icons/Cross-Unclicked.png" ></button>
       </div>
       <div class="tickicons">
-        <img src="Icons/Tick-Unclicked.png" >
+        <button class="btn" id="tickbutton" onclick="window.open('map.html', '_blank')"><img src="Icons/Tick-Unclicked.png" ></button>
       </div>
     </div>
     <div class= "infotable">
       <div id="name"> Name </div>
       <div id="ratings"> Ratings </div>
-      <div id="address"> Address </div>
+      <div id="address"> Location </div>
       <div id="cuisine"> Cuisine </div>
       <div id="openinghrs"> Opening Hours </div>
       <div id="averagecost"> Average Cost </div>
     </div>
+
 </body>
 
 <script src="scripts/index.js"></script>
+
+</html>
+
