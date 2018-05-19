@@ -22,9 +22,10 @@ function getInfo(responseJSON){
     for(var i = 0; i <responseJSON.nearby_restaurants.length; i++){
         console.log('name:', responseJSON.nearby_restaurants[i].restaurant.name);
         console.log('address:', responseJSON.nearby_restaurants[i].restaurant.location.address);
-        console.log('cusine:', responseJSON.nearby_restaurants[i].restaurant.cuisines);
+        console.log('cuisine:', responseJSON.nearby_restaurants[i].restaurant.cuisines);
         console.log('average cost:', '$' + responseJSON.nearby_restaurants[i].restaurant.average_cost_for_two);
         console.log('rating:', responseJSON.nearby_restaurants[i].restaurant.user_rating.aggregate_rating);
+        console.log('photo url:', responseJSON.nearby_restaurants[i].restaurant.featured_image);
         console.log('-------------------------')
         
     }
