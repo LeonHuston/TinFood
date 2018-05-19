@@ -27,8 +27,14 @@ function getMap(latCode, lonCode) {
                 source: new ol.source.OSM()
             }),
             new ol.layer.Vector({
-                source: new ol.source.Vector(),
-                style: new ol.style.Style()
+                source: new ol.source.Vector({features: new ol.Feature({
+                    geometry: new ol.geom.Point(ol.proj.fromLonLat([lonCode, latCode]))
+                })}),
+                style: new ol.style.Style({
+                    image: new ol.style.Icon({
+                        src: 
+                    })
+                })
             })
         ],
         view: new ol.View({
