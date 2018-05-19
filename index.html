@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta charset="utf-8">
   <link rel="stylesheet" href="sectionizr.css">
+</head>
 
 <body>
   <div class="wrapper">
@@ -17,13 +18,13 @@
       <i class="fa fa-twitter" style="font-size:24px"></i>
     </div>
 
-    <div class= "card">CARD
+    <div class= "card">
       <img id="featureImage" src=""/>
       <div class="crossicons" onclick="nextRest()">
           <button class="btn" id="crossbutton" ><img src="Icons/Cross-Unclicked.png" ></button>
       </div>
       <div class="tickicons">
-        <button class="btn" id="tickbutton" onclick="nextRest()"><img src="Icons/Tick-Unclicked.png" ></button>
+        <button class="btn" id="tickbutton" onclick="window.open('map.html', '_blank')"><img src="Icons/Tick-Unclicked.png" ></button>
       </div>
     </div>
     <div class= "infotable">
@@ -35,16 +36,9 @@
       <div id="averagecost"> Average Cost </div>
     </div>
 
-    <div class="sectionizr">
-      <div class="controls">
-        <a class="prev" onclick="controlla1.prev()"></a>
-        <a class="next" onclick="controlla1.next()"></a>
-      </div>
-    </div>
-
 </body>
 
 <script src="scripts/index.js"></script>
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="dist/sectionizr.min.js"></script>
-<script src="scripts/movement.js"></script>
+
+</html>
+
