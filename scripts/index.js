@@ -1,6 +1,6 @@
 function getGeoCode(latitude, longitude){
-    let lat = latitude;
-    let long = longitude;
+    var lat = latitude;
+    var long = longitude;
     var responseJSON;
 
     var uri = 'https://developers.zomato.com/api/v2.1/geocode?lat=' + lat + '&lon=' + long;
@@ -13,14 +13,20 @@ function getGeoCode(latitude, longitude){
     xhr.onload = function () {
         responseJSON = JSON.parse(xhr.responseText);
         console.log(responseJSON);
-        getAddress(responseJSON);
+        getInfo(responseJSON);
     }
     xhr.send(null);
 }
 
-function getAddress(responseJSON){
+function getInfo(responseJSON){
     for(var i = 0; i <responseJSON.nearby_restaurants.length; i++){
-        console.log(responseJSON.nearby_restaurants[i].restaurant.location.address);
+        console.log('name:', responseJSON.nearby_restaurants[i].restaurant.name);
+        console.log('address:', responseJSON.nearby_restaurants[i].restaurant.location.address);
+        console.log('cusine:', responseJSON.nearby_restaurants[i].restaurant.cuisines);
+        console.log('average cost:', '$' + responseJSON.nearby_restaurants[i].restaurant.average_cost_for_two);
+        console.log('rating:', responseJSON.nearby_restaurants[i].restaurant.user_rating.aggregate_rating);
+        console.log('-------------------------')
+        
     }
 }
 
