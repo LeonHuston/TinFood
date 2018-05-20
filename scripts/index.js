@@ -3,7 +3,7 @@ var responseJSON;
 function getGeoCode(latitude, longitude) {
     var lat = latitude;
     var long = longitude;
-    
+
 
     var uri = 'https://developers.zomato.com/api/v2.1/geocode?lat=' + lat + '&lon=' + long;
 
@@ -35,7 +35,6 @@ function getMap(latCode, lonCode) {
                 })}),
                 style: new ol.style.Style({
                     image: new ol.style.Icon({
-                        src: /../Icons/Map-Marker.png
                     })
                 })
             })
@@ -75,7 +74,7 @@ function nextRest(){
     document.getElementById('featureImage').src = responseJSON.nearby_restaurants[counter].restaurant.featured_image;
     lat = responseJSON.nearby_restaurants[counter].restaurant.location.latitude;
     long = responseJSON.nearby_restaurants[counter].restaurant.location.longitude;
-    
+
     counter += 1;
 }
 
@@ -98,4 +97,20 @@ function setInfo() {
 
 window.onload = function () {
     getGeoCode(-36.852515, 174.768618);
+
+
+var taglines = [
+    "One is never enough",
+    "Satisfy your cravings",
+    "No, I am my father",
+    "I'm loving it",
+    "No, we aren't voilating copyright law",
+    "Please find our complaints department below",
+    "Click, Match, Eat",
+    "Geographical center of the world",
+    "Finger clicking good",
+    "We're not responsible for food-poisoning claims"
+];
+var randomtag = taglines[Math.floor(Math.random()*10)];
+document.getElementById("tagline").innerHTML=randomtag;
 }
