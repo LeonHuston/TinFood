@@ -15,33 +15,10 @@ function init() {
         zoom: 18
     });
 
-    var pointFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([lonCode, latCode]))
-    })
-
-    var pointStyle = new ol.style.Style({
-        image: new ol.style.Circle({
-            radius: 7,
-            snapToPixel: false,
-            fill: new ol.style.Fill({
-                color: 'red'
-            }),
-            stroke: new ol.style.Stroke({
-                color: 'black',
-                width: 3
-            })
-        })
-    })
-
-    var vectorSource = new ol.source.Vector({
-        features: pointFeature
-    })
-
+    var vectorSource = new ol.source.Vector({});
     var vectorLayer = new ol.layer.Vector({
         source: vectorSource,
-        style: pointStyle
     });
-
     var map = new ol.Map({
         target: 'map',
         layers: [
@@ -54,4 +31,25 @@ function init() {
             keyboardPan: false
         })
     })
+    var pointFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([lonCode, latCode]))
+    })
+
+    var pointStyle = new ol.style.Style({
+        image: new ol.style.Circle({
+            radius: 8,
+            snapToPixel: false,
+            fill: new ol.style.Fill({
+                color: 'red'
+            }),
+            stroke: new ol.style.Stroke({
+                color: 'red',
+                width: 2
+            })
+        })
+    });
+
+    vectorSource.addFeature(pointFeature);
+    pointFeature.setStyle(pointStyle);
+
 }
