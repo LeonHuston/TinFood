@@ -35,7 +35,6 @@ function getMap(latCode, lonCode) {
                 })}),
                 style: new ol.style.Style({
                     image: new ol.style.Icon({
-                        src: /../Icons/Map-Marker.png
                     })
                 })
             })
@@ -98,7 +97,7 @@ function setInfo() {
 
 window.onload = function () {
     getGeoCode(-36.852515, 174.768618);
-}
+
 
 var taglines = [
     "One is never enough",
@@ -114,3 +113,4 @@ var taglines = [
 ];
 var randomtag = taglines[Math.floor(Math.random()*10)];
 document.getElementById("tagline").innerHTML=randomtag;
+}
