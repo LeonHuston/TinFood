@@ -39,8 +39,6 @@ function getMenu(id) {
 }
 
 var counter = 0
-var latitude;
-var longitude;
 function nextRest(){
     console.log("click");
     document.getElementById('name').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.name;
@@ -49,11 +47,29 @@ function nextRest(){
     document.getElementById('cuisine').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.cuisines;
     document.getElementById('averagecost').innerHTML = '$' + responseJSON.nearby_restaurants[counter].restaurant.average_cost_for_two;
     document.getElementById('featureImage').src = responseJSON.nearby_restaurants[counter].restaurant.featured_image;
-    latitude = responseJSON.nearby_restaurants[counter].restaurant.location.latitude;
-    longitude = responseJSON.nearby_restaurants[counter].restaurant.location.longitude;
-    
+
+    var taglines = [
+        "One is never enough",
+        "Satisfy your cravings",
+        "No, I am my father",
+        "I'm loving it",
+        "No, we aren't voilating copyright law",
+        "Please find our complaints department below",
+        "Click, Match, Eat",
+        "Geographical center of the world",
+        "Finger clicking good",
+        "We're not responsible for food-poisoning claims"
+    ];
+    var randomtag = taglines[Math.floor(Math.random()*10)];
+    document.getElementById("tagline").innerHTML=randomtag;
+
     counter += 1;
+    if (counter >= responseJSON.nearby_restaurants.length){
+        counter = 0;
+    }
 }
+
+
 function openMap(){
     window.open('map.html', '_blank');
 }
@@ -76,20 +92,4 @@ function setInfo() {
 
 window.onload = function () {
     getGeoCode(-36.852515, 174.768618);
-
-
-var taglines = [
-    "One is never enough",
-    "Satisfy your cravings",
-    "No, I am my father",
-    "I'm loving it",
-    "No, we aren't voilating copyright law",
-    "Please find our complaints department below",
-    "Click, Match, Eat",
-    "Geographical center of the world",
-    "Finger clicking good",
-    "We're not responsible for food-poisoning claims"
-];
-var randomtag = taglines[Math.floor(Math.random()*10)];
-document.getElementById("tagline").innerHTML=randomtag;
 }
