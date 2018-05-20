@@ -26,10 +26,10 @@ function init() {
             vectorLayer
         ],
         view: view,
-        interactions: new ol.interaction.defaults({
+        /*interactions: new ol.interaction.defaults({
             dragPan: false,
             keyboardPan: false
-        })
+        })*/
     })
     var pointFeature = new ol.Feature({
         geometry: new ol.geom.Point(ol.proj.fromLonLat([lonCode, latCode]))
