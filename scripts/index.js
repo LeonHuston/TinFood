@@ -15,7 +15,6 @@ function getGeoCode(latitude, longitude) {
     xhr.onload = function () {
         responseJSON = JSON.parse(xhr.responseText);
         console.log(responseJSON);
-        setInfo();
         nextRest();
     }
     xhr.send(null);
@@ -40,12 +39,11 @@ function getMenu(id) {
 
 var counter = 0
 function nextRest(){
-    console.log("click");
     document.getElementById('name').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.name;
     document.getElementById('address').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.location.address;
-    document.getElementById('ratings').innerHTML = 'rating ' + responseJSON.nearby_restaurants[counter].restaurant.user_rating.aggregate_rating;
-    document.getElementById('cuisine').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.cuisines;
-    document.getElementById('averagecost').innerHTML = '$' + responseJSON.nearby_restaurants[counter].restaurant.average_cost_for_two;
+    document.getElementById('ratings').innerHTML = 'Rating: ' + responseJSON.nearby_restaurants[counter].restaurant.user_rating.aggregate_rating;
+    document.getElementById('cuisine').innerHTML = 'Cuisine: ' + responseJSON.nearby_restaurants[counter].restaurant.cuisines;
+    document.getElementById('averagecost').innerHTML = '$' + responseJSON.nearby_restaurants[counter].restaurant.average_cost_for_two + ' for two people.';
     document.getElementById('featureImage').src = responseJSON.nearby_restaurants[counter].restaurant.featured_image;
 
     var taglines = [
@@ -74,21 +72,6 @@ function openMap(){
     window.open('map.html', '_blank');
 }
 
-
-function setInfo() {
-    for (var i = 0; i < responseJSON.nearby_restaurants.length; i++) {
-
-        console.log('name:', responseJSON.nearby_restaurants[i].restaurant.name);
-        console.log('address:', responseJSON.nearby_restaurants[i].restaurant.location.address);
-        console.log('cuisine:', responseJSON.nearby_restaurants[i].restaurant.cuisines);
-        console.log('average cost:', '$' + responseJSON.nearby_restaurants[i].restaurant.average_cost_for_two);
-        console.log('rating:', responseJSON.nearby_restaurants[i].restaurant.user_rating.aggregate_rating);
-        console.log('photo url:', responseJSON.nearby_restaurants[i].restaurant.featured_image);
-        //console.log('menu:', getMenu(responseJSON.nearby_restaurants[i].restaurant.id));
-        console.log('-------------------------')
-
-    }
-}
 
 window.onload = function () {
     getGeoCode(-36.852515, 174.768618);

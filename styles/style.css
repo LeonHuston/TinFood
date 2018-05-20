@@ -43,9 +43,9 @@ body{
 .card{
   grid-column: 2/7;
   text-align: center;
-
+  height: 75%;
   box-shadow: 0 16px 32px 0;
-  grid-row: 2/11;
+  grid-row: 2/12;
   background-color: transparent;
 }
 .infotable{
@@ -55,7 +55,7 @@ body{
   border-width: thick;
   border-color: white;
   background-color: white;
-  grid-row: 10/11;
+  grid-row: 10/12;
   border: 8px dashed #b83f3f;
 }
 
@@ -88,7 +88,7 @@ body{
 .crossicons{
   position: relative;
   text-align: left;
-  bottom: 4%;
+  top: -58px;
   max-width: 58px;
 }
 
@@ -96,7 +96,7 @@ body{
   position: relative;
   float: right;
   text-align: right;
-  bottom: 13%;
+  top: -120px;
   max-width: 58px;
 
 }
