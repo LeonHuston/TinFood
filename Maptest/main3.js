@@ -48,6 +48,10 @@ function init() {
             tileLayer,
             vectorLayer
         ],
-        view: view
+        view: view,
+        interactions: new ol.interaction.defaults({
+            dragPan: false,
+            keyboardPan: false
+        })
     })
 }
