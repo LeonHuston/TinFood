@@ -10,7 +10,7 @@ function getGeoCode(latitude, longitude) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", uri, true);
     xhr.setRequestHeader('Accept', 'application/json');
-    xhr.setRequestHeader('user-key', '3d0ab60f2f13468436ded2fa7d6a0188');
+    xhr.setRequestHeader('user-key', '4809504e186237acac721723ad21ed05');
 
     xhr.onload = function () {
         responseJSON = JSON.parse(xhr.responseText);
@@ -22,30 +22,6 @@ function getGeoCode(latitude, longitude) {
 
 }
 
-function getMap(latCode, lonCode) {
-    var map = new ol.Map({
-        target: 'map',
-        layers: [
-            new ol.layer.Tile({
-                source: new ol.source.OSM()
-            }),
-            new ol.layer.Vector({
-                source: new ol.source.Vector({features: new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat([lonCode, latCode]))
-                })}),
-                style: new ol.style.Style({
-                    image: new ol.style.Icon({
-                        src: /../Icons/Map-Marker.png
-                    })
-                })
-            })
-        ],
-        view: new ol.View({
-            center: ol.proj.fromLonLat([lonCode, latCode]),
-            zoom: 18
-        })
-    })
-}
 
 function getMenu(id) {
 
@@ -54,7 +30,7 @@ function getMenu(id) {
     var xhr2 = new XMLHttpRequest();
     xhr2.open("GET", menu_uri, true);
     xhr2.setRequestHeader('Accept', 'application/json');
-    xhr2.setRequestHeader('user-key', '3d0ab60f2f13468436ded2fa7d6a0188');
+    xhr2.setRequestHeader('user-key', '4809504e186237acac721723ad21ed05');
     xhr2.onload = function () {
         menuJSON = JSON.parse(xhr2.responseText);
     }
@@ -63,8 +39,8 @@ function getMenu(id) {
 }
 
 var counter = 0
-var lat;
-var long;
+var latitude;
+var longitude;
 function nextRest(){
     console.log("click");
     document.getElementById('name').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.name;
@@ -73,12 +49,14 @@ function nextRest(){
     document.getElementById('cuisine').innerHTML = responseJSON.nearby_restaurants[counter].restaurant.cuisines;
     document.getElementById('averagecost').innerHTML = '$' + responseJSON.nearby_restaurants[counter].restaurant.average_cost_for_two;
     document.getElementById('featureImage').src = responseJSON.nearby_restaurants[counter].restaurant.featured_image;
-    lat = responseJSON.nearby_restaurants[counter].restaurant.location.latitude;
-    long = responseJSON.nearby_restaurants[counter].restaurant.location.longitude;
+    latitude = responseJSON.nearby_restaurants[counter].restaurant.location.latitude;
+    longitude = responseJSON.nearby_restaurants[counter].restaurant.location.longitude;
     
     counter += 1;
 }
-
+function openMap(){
+    window.open('map.html', '_blank');
+}
 
 
 function setInfo() {

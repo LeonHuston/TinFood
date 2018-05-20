@@ -1,7 +1,11 @@
+/* function mapInit(){
+    init(lat, long);
+} */
+
 function init() {
 
-    var latCode = -36.848996
-    var lonCode = 174.766213
+    var latCode = -36.848996;
+    var lonCode = 174.766213;
     var tileLayer = new ol.layer.Tile({
         source: new ol.source.OSM()
     });
