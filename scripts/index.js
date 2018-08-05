@@ -10,7 +10,6 @@ function getGeoCode(latitude, longitude) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", uri, true);
     xhr.setRequestHeader('Accept', 'application/json');
-    xhr.setRequestHeader('user-key', '4809504e186237acac721723ad21ed05');
 
     xhr.onload = function () {
         responseJSON = JSON.parse(xhr.responseText);
@@ -29,7 +28,6 @@ function getMenu(id) {
     var xhr2 = new XMLHttpRequest();
     xhr2.open("GET", menu_uri, true);
     xhr2.setRequestHeader('Accept', 'application/json');
-    xhr2.setRequestHeader('user-key', '4809504e186237acac721723ad21ed05');
     xhr2.onload = function () {
         menuJSON = JSON.parse(xhr2.responseText);
     }
